@@ -23,7 +23,7 @@ def integer_division(num_a: int, num_b: int) -> int:
 
 def powerful_operations(num_a: int, num_b: int) -> tuple:
     """Return the product of given variables, num_a to the power of num_b and the remainder of division of variables."""
-    multiply_numbers = num_a * num_a
+    multiply_numbers = num_a * num_b
     power = num_a ** num_b
     remainder = num_a % num_b
     return multiply_numbers, power, remainder
@@ -43,7 +43,7 @@ def area_of_a_circle(radius: float) -> float:
 
 def area_of_an_equilateral_triangle(side_length: float) -> int:
     """Calculate and return the area of an equilateral triangle."""
-    triangle_area = int(((side_length ** 2) * math.sqrt(3)) / 4)
+    triangle_area = round(((side_length ** 2) * math.sqrt(3)) / 4)
     return triangle_area
 
 
@@ -55,7 +55,7 @@ def calculate_discriminant(a: int, b: int, c: int) -> int:
 
 def calculate_hypotenuse_length(a: int, b: int) -> float:
     """Return the length of hypotenuse when the lengths of the catheti are given."""
-    c = a ** 2 + b**2
+    c = math.sqrt(a ** 2 + b**2)
     return c
 
 
@@ -67,15 +67,16 @@ def calculate_cathetus_length(a: int, c: int) -> float:
 
 def time_converter(seconds: int) -> str:
     """Convert time in seconds to hours and minutes."""
-    minutes = seconds // 60 + seconds % 60
-    hours = minutes // 60 + minutes % 60
+    minutes = seconds // 60
+    hours = minutes // 60
+    minutes = minutes % 60
     return f"{seconds} sekundit on {hours} tund(i) ja {minutes} minut(it)."
 
 
 def student_helper(angle: int) -> str:
     """Return the sine and cosine of the given angle in degrees."""
-    sine = round(math.sin(angle),1)
-    cosine = round(math.cos(angle),1)
+    sine = round(math.sin(math.radians(angle)),1)
+    cosine = round(math.cos(math.radians(angle)),1)
     return f"Nurk: {angle}, siinus: {sine}, koosinus: {cosine}."
 
 
